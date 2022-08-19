@@ -1,6 +1,8 @@
 import csv
 import random
 
+from getCity import getCity
+
 if(0 == 0):
     tlat = 0
     tlatm = 0
@@ -20,14 +22,9 @@ rlat = float(rows[rcity] [1])
 rlon = float(rows[rcity] [2])
 print((rows[rcity] [0]) + " (" + (rows[rcity] [4]) + ")")
 
-c1 = int(input("Stadt auswählen: "))
-if(c1 > trows):
-    print("Error: Eingabe muss unter " + str(trows) + " sein!")
-    c1 = int(input("Stadt auswählen: "))
-c2 = int(input("Stadt auswählen: "))
-if(c2 > trows):
-    print("Error: Eingabe muss unter " + str(trows) + " sein!")
-    c2 = int(input("Stadt auswählen: "))
+c1 = int(getCity(input("Stadt 1 auswählen: "), 1))
+
+c2 = int(getCity(input("Stadt 2 auswählen: "), 2))
 
 if(c1 > trows or c2 > trows):
     quit()
