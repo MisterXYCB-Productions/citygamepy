@@ -11,16 +11,20 @@ def findCityByName(name):
     index = -1
     for x in rows:
         index += 1
-        if(name in x):
-            break
-    return index
+        city = str(x[0])
+        print(name.lower(), city.lower())
+        if(name.lower() == city.lower()):
+            return index
+        if(index > 602):
+            return None
+    
 
 
 def getCity(var, cityNumber):
     cityByName = findCityByName(var)
     if(cityByName is not None):
         return(cityByName)
-    elif(var < 602 and var > 0):
+    elif(isinstance(var, int) and var < 602 and var > 0):
         return var
     else:
         print("Error: Input muss der Name einer deutschen Stadt sein oder eine Zahl zwischen 1 und 601")
