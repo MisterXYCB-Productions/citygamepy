@@ -12,7 +12,6 @@ def findCityByName(name):
     for x in rows:
         index += 1
         city = str(x[0])
-        print(name.lower(), city.lower())
         if(name.lower() == city.lower()):
             return index
         if(index > 602):
@@ -23,14 +22,14 @@ def findCityByName(name):
 def getCity(var, cityNumber):
     cityByName = findCityByName(var)
     if(cityByName is not None):
-        return(cityByName)
+        return(int(cityByName))
     elif(isinstance(var, int) and var < 602 and var > 0):
         return var
     else:
         print("Error: Input muss der Name einer deutschen Stadt sein oder eine Zahl zwischen 1 und 601")
         if(cityNumber == 1):
-            getCity(input("Stadt 1 auswählen:"), 1)
+            return getCity(input("Stadt 1 auswählen:"), 1)
         elif(cityNumber == 2):
-            getCity(input("Stadt 2 auswählen:"), 2)
+            return getCity(input("Stadt 2 auswählen:"), 2)
         else: 
             quit()
